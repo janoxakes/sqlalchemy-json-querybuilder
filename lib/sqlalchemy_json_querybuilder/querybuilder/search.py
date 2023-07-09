@@ -113,7 +113,11 @@ class Search():
             self.filter_by = {'and': [query_obj for query_obj in self.filter_by]}
 
         and_expressions, and_error_fields = self.__eval_criteria__(self.filter_by.get('and', []))
+        if not and_expressions:
+            and_expressions = [True]
         or_expressions, or_error_fields = self.__eval_criteria__(self.filter_by.get('or', []))
+        if not or_expressions:
+            or_expressions = [False]
         error_fields.extend(and_error_fields)
         error_fields.extend(or_error_fields)
 

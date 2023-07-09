@@ -1,9 +1,8 @@
 __author__ = "Suyash Soni"
 __email__ = "suyash.soni248@gmail.com"
 
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
 
 Base = declarative_base()
 con_url = 'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'.format(
